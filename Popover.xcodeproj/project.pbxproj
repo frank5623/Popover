@@ -18,6 +18,7 @@
 		1576C1512E8507BA00EE441B /* PopoverUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1576C1502E8507BA00EE441B /* PopoverUITestsLaunchTests.m */; };
 		1576C1602E85298B00EE441B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1576C15F2E85298B00EE441B /* ViewController.m */; };
 		1576C16D2E8CD2DD00EE441B /* TablePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1576C16C2E8CD2DD00EE441B /* TablePicker.m */; };
+		1576C1702E8E695E00EE441B /* NSString+ChineseNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1576C16F2E8E695E00EE441B /* NSString+ChineseNumber.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		1576C15F2E85298B00EE441B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1576C16B2E8CD2D700EE441B /* TablePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TablePicker.h; sourceTree = "<group>"; };
 		1576C16C2E8CD2DD00EE441B /* TablePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TablePicker.m; sourceTree = "<group>"; };
+		1576C16E2E8E695E00EE441B /* NSString+ChineseNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+ChineseNumber.h"; sourceTree = "<group>"; };
+		1576C16F2E8E695E00EE441B /* NSString+ChineseNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+ChineseNumber.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,7 @@
 				1576C13A2E8507BA00EE441B /* main.m */,
 				1576C1612E852A3E00EE441B /* main */,
 				1576C1652E852A7900EE441B /* Popover */,
+				1576C1712E8E697500EE441B /* Category */,
 			);
 			path = Popover;
 			sourceTree = "<group>";
@@ -155,6 +159,15 @@
 				1576C16B2E8CD2D700EE441B /* TablePicker.h */,
 			);
 			path = Popover;
+			sourceTree = "<group>";
+		};
+		1576C1712E8E697500EE441B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				1576C16E2E8E695E00EE441B /* NSString+ChineseNumber.h */,
+				1576C16F2E8E695E00EE441B /* NSString+ChineseNumber.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +304,7 @@
 				1576C12A2E8507B800EE441B /* AppDelegate.m in Sources */,
 				1576C13B2E8507BA00EE441B /* main.m in Sources */,
 				1576C1602E85298B00EE441B /* ViewController.m in Sources */,
+				1576C1702E8E695E00EE441B /* NSString+ChineseNumber.m in Sources */,
 				1576C12D2E8507B800EE441B /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

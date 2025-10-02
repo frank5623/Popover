@@ -9,7 +9,7 @@
 #import "TablePicker.h" // 导入 TablePicker.h 以识别协议
 
 
-@interface ViewController : UIViewController <TablePickerDelegate>
+@interface ViewController : UIViewController <TablePickerDelegate,UIPopoverPresentationControllerDelegate>
 
 - (IBAction)eazypress:(id)sender;
 

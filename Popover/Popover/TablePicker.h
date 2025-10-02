@@ -21,9 +21,9 @@
 
 @end
 
-
 @interface TablePicker : UITableViewController<UITableViewDelegate,UITableViewDataSource>
 
+@property(nonatomic,weak) UILabel *noticeLabel;
 @property(nonatomic,weak) NSString *left;
 @property(nonatomic,weak) NSString *right;
 @property (nonatomic,strong) NSMutableArray *leftArray;

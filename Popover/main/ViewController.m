@@ -10,15 +10,26 @@
 
 @interface ViewController () <TablePickerDelegate> // 【修改点 2】采纳 TablePickerDelegate 协议
 
-@end
 
+@end
 @implementation ViewController
+
+#pragma mark - 阻止 Popover 全屏 (UIPopoverPresentationControllerDelegate)
+
+// 这个方法告诉系统在紧凑环境（iPhone）下，不要将 Popover 自适应为全屏。
+-(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    // #if !PadMode 的实现：返回 UIModalPresentationNone
+    return UIModalPresentationNone;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
 }
+
+
+
 - (IBAction)buttonPressed:(UIButton *)sender {
     UIStoryboard *storyboard = self.storyboard;
     // 實例化 TableViewController
@@ -55,12 +66,14 @@
     // 取得 Popover 呈現控制器
     UIPopoverPresentationController *popover = tablePicker.popoverPresentationController;
     
+    // 【新增】将 UIPopoverPresentationController 的 Delegate 设为自身
+        popover.delegate = self;
     // 將來源設定為被點擊的普通按鈕
     popover.sourceView = sender;
     popover.sourceRect = sender.bounds;
     
     // 呈現控制器
-    [self presentViewController:tablePicker animated:YES completion:nil];	
+    [self presentViewController:tablePicker animated:YES completion:nil];
 }
 - (void)tablePicker:(TablePicker *)picker didSelectValue:(NSString *)value {
     
