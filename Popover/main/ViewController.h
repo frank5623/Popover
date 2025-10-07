@@ -9,11 +9,6 @@
 #import "TablePicker.h" // 导入 TablePicker.h 以识别协议
 #import "Foundation/Foundation.h"
 
-@class CustomLabel ; // 仍然需要前向宣告，因为您会在 .h 中用到它 (例如 IBOutlet)
-@protocol CustomLabelDelegate; // 仍然需要前向宣告
-
-
-
 @interface ViewController : UIViewController <TablePickerDelegate,UIPopoverPresentationControllerDelegate>{
     UIPopoverPresentationController *popover;
 }

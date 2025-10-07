@@ -20,7 +20,7 @@
 @end
 
 
-@interface NSString_ChineseNumber : UITableViewController
+@interface NSString_ChineseNumber : UIViewController
 
 @end
 

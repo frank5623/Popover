@@ -22,7 +22,9 @@
 
 @end
 
-@interface TablePicker : UITableViewController<UITableViewDelegate,UITableViewDataSource>
+@interface TablePicker :UIViewController<UITableViewDelegate,UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,weak) NSIndexPath *lastSelectedIndexPath;
 @property(nonatomic,weak) NSString *notice;
