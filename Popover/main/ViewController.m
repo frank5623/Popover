@@ -22,9 +22,6 @@
     
     // 初始设置：B 按钮禁用 (不可按)
     self.seperatebtn.enabled = NO;
-    
-    
-   
 }
 
 -(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {

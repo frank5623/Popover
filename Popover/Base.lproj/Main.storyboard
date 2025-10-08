@@ -52,6 +52,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="test">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="50"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="1dX-pV-aTE" kind="presentation" id="G0t-bO-xFx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yn0-pD-wkb">
                                 <rect key="frame" x="20" y="815" width="109" height="47"/>
@@ -247,11 +250,11 @@
             <objects>
                 <viewController storyboardIdentifier="TablePicker" id="1dX-pV-aTE" customClass="TablePicker" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OTG-o0-rOy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UvS-q5-FsO">
-                                <rect key="frame" x="0.0" y="98" width="414" height="764"/>
+                                <rect key="frame" x="0.0" y="50" width="414" height="836"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TablePickerCell" id="HU2-1K-S7o">
@@ -280,6 +283,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuF-qh-IDd">
+                                <rect key="frame" x="20" y="20" width="112" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="選項">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="classifymethod:" destination="1dX-pV-aTE" eventType="touchUpInside" id="SG6-s1-w7Y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BIm-y7-U2P"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -291,12 +305,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="classify" destination="ZuF-qh-IDd" id="N9T-Er-Dph"/>
                         <outlet property="tableView" destination="UvS-q5-FsO" id="xlD-ox-Rj9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Up-Sx-mml" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="732" y="-29"/>
+            <point key="canvasLocation" x="730.43478260869574" y="-29.464285714285712"/>
         </scene>
     </scenes>
     <resources>

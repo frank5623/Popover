@@ -26,11 +26,16 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet UIButton *classify;
+- (IBAction)classifymethod:(id)sender;
+
 @property(nonatomic,weak) NSIndexPath *lastSelectedIndexPath;
 @property(nonatomic,weak) NSString *notice;
 
 @property(nonatomic,weak) NSString *left;   //左右label字串
 @property(nonatomic,weak) NSString *right;
+@property (nonatomic,strong) NSMutableArray *resultArray1;
+@property (nonatomic,strong) NSMutableArray *resultArray2;
 @property (nonatomic,strong) NSMutableArray *leftArray; //左右資料庫
 @property (nonatomic,strong) NSMutableArray *rightArray;
 // 2. 添加 delegate 属性
@@ -40,6 +45,6 @@
 @property (nonatomic, strong) NSString *currentKey; // 用于在 delegate 方法中传回 key
 @property (nonatomic, assign) BOOL isKeyMode; // 用于判断是否使用 WithKey 的 delegate 方法
 
-
+@property (nonatomic, strong) NSString *classifyValue;
 
 @end
