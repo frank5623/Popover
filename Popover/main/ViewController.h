@@ -15,8 +15,6 @@
 
 -(IBAction)eazypress:(id)sender;
 
--(IBAction)buttonPressed:(id)sender;
-
 - (IBAction)seperateMeth:(id)sender;//分辨
 
 

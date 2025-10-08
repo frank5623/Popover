@@ -74,25 +74,6 @@
     
 }
 
--(IBAction)buttonPressed:(UIButton *)sender {
-    UIStoryboard *storyboard = self.storyboard;
-    // 實例化 TableViewController
-    UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"TableViewController"];
-    
-    // 設定為 Popover 模式
-    controller.modalPresentationStyle = UIModalPresentationPopover;
-    
-    // 取得 Popover 呈現控制器
-    UIPopoverPresentationController *popover = controller.popoverPresentationController;
-    
-    // 將來源設定為被點擊的普通按鈕
-    popover.sourceView = sender;
-    popover.sourceRect = sender.bounds;
-    
-    // 呈現控制器
-    [self presentViewController:controller animated:YES completion:nil];
-}
-
 - (IBAction)eazypress:(UIButton *)sender {
     
     [popover dismissalTransitionDidEnd:YES];

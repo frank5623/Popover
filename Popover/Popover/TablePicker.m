@@ -185,7 +185,7 @@
                                 [self.classify setTitle:@"全部" forState:UIControlStateNormal];
 //                                // 2. 禁用字体自动调整 (防止系统覆盖)
 //                                self.classify.titleLabel.adjustsFontSizeToFitWidth = NO;
-//                                self.classify.titleLabel.font = [UIFont boldSystemFontOfSize:30.0];
+                                self.classify.titleLabel.font = [UIFont boldSystemFontOfSize:30.0];
 //                                // 4. 强制按钮调整大小以适应新字体
 //                                [self.classify.titleLabel sizeToFit];
 //                                // 5. 强制按钮立即更新布局
