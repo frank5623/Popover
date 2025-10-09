@@ -47,7 +47,6 @@
 		1576C1322E8507B800EE441B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1576C1342E8507BA00EE441B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1576C1372E8507BA00EE441B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1576C1392E8507BA00EE441B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1576C13A2E8507BA00EE441B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1576C1402E8507BA00EE441B /* PopoverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopoverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1576C1442E8507BA00EE441B /* PopoverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopoverTests.m; sourceTree = "<group>"; };
@@ -92,7 +91,6 @@
 			children = (
 				1576C1272E8507B800EE441B /* Popover */,
 				1576C1432E8507BA00EE441B /* PopoverTests */,
-				1576C14D2E8507BA00EE441B /* PopoverUITests */,
 				1576C1262E8507B800EE441B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,7 +115,6 @@
 				1576C1312E8507B800EE441B /* Main.storyboard */,
 				1576C1342E8507BA00EE441B /* Assets.xcassets */,
 				1576C1362E8507BA00EE441B /* LaunchScreen.storyboard */,
-				1576C1392E8507BA00EE441B /* Info.plist */,
 				1576C13A2E8507BA00EE441B /* main.m */,
 				1576C1612E852A3E00EE441B /* main */,
 				1576C1652E852A7900EE441B /* Popover */,
@@ -129,6 +126,7 @@
 		1576C1432E8507BA00EE441B /* PopoverTests */ = {
 			isa = PBXGroup;
 			children = (
+				1576C14D2E8507BA00EE441B /* PopoverUITests */,
 				1576C1442E8507BA00EE441B /* PopoverTests.m */,
 			);
 			path = PopoverTests;

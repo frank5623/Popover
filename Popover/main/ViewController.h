@@ -22,7 +22,7 @@
 
 ///按鈕啟用／禁用     /////////////////////////////////////////////
 @property (weak, nonatomic) IBOutlet UIButton *eazybtn;
-@property (strong, nonatomic) IBOutlet UIButton *seperatebtn;
+@property (weak, nonatomic) IBOutlet UIButton *seperatebtn;
 //////////////////////////////////////////////////////////////////////////////////
 
 @property (strong, nonatomic) TablePicker *tablePicker;

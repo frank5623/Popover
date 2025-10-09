@@ -35,8 +35,19 @@
     [super viewDidLoad];
 //    CGFloat width = 300.0;  // 您希望的 Popover 宽度 (例如 300 点)
 //    CGFloat height = 440.0; // 您希望的 Popover 高度 (例如 440 点)
-//       
+//
 //    self.preferredContentSize = CGSizeMake(width, height);
+    self.allDataSources=[[NSMutableDictionary alloc]init];
+    NSMutableArray *resultArray1=[[NSMutableArray alloc]init];
+    NSMutableArray *resultArray2=[[NSMutableArray alloc]init];
+    
+    // 3. (可選) 填充一些數據以供驗證
+//    [resultArray1 addObject:@"項目 A"];
+//    [resultArray2 addObject:@"項目 B"];
+
+    // 4. 【核心步驟】將兩個陣列放入字典中，並指定唯一的 Key
+    [self.allDataSources setObject:resultArray1 forKey:@"leftArray"];
+    [self.allDataSources setObject:resultArray2 forKey:@"rightArray"];
     
     // 初始化数据源数组并添加数据
     self.leftArray = [[NSMutableArray alloc] init];
@@ -62,7 +73,7 @@
         [self.rightArray addObject:option];
     }
     //=============================================================================
-    self.resultArray1 = [[NSMutableArray alloc]init];
+    resultArray1 = [[NSMutableArray alloc]init];
     for (int i = 1; i <= 20; i++) {
         // 1. 将数字 i 转换为字符串，
         NSString *numberStr = [NSString stringWithFormat:@"%@", @(i)];
@@ -71,14 +82,22 @@
         // 3. 组合成最终的选项文本
         NSString *finalText = [NSString stringWithFormat:@"選項%@", chineseOption];
         
-        [self.resultArray1 addObject:finalText];
+        [resultArray1 addObject:finalText];
     }
-    self.resultArray2 = [[NSMutableArray alloc]init];
+    resultArray2 = [[NSMutableArray alloc]init];
     for (int i = 1; i <= 20; i++) {
         NSString *option = [NSString stringWithFormat:@"選項%@", @(i)];
-        [self.resultArray2 addObject:option];
+        [resultArray2 addObject:option];
     }
     //===============================================================================
+    //設定初始值 => 加入資料的Array 放進 Dictionary 中的空Array
+    for (int i=0; i<self.leftArray.count; i++) {
+        [self.allDataSources[@"leftArray"] addObject:self.leftArray[i]];
+        [self.allDataSources[@"rightArray"] addObject:self.rightArray[i]];
+    }
+        
+    
+    
     // 设置 tableView 的数据源和代理为 self
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -92,7 +111,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.resultArray1.count;
+    return [self.allDataSources[@"leftArray"] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,11 +122,11 @@
     if (cell == nil) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
     
-    NSString *rowData1 = self.resultArray1[indexPath.row];
+    NSString *rowData1 = self.allDataSources[@"leftArray"][indexPath.row];
     UILabel *column_1 = [cell viewWithTag:1];
     column_1.text = rowData1;
 
-    NSString *rowData2 = self.resultArray2[indexPath.row];
+    NSString *rowData2 = self.allDataSources[@"rightArray"][indexPath.row];
     UILabel *column_2 = [cell viewWithTag:2];
     column_2.text  = rowData2;
     
@@ -139,8 +158,8 @@
     
     //選中位置數字
     NSInteger a = indexPath.row;
-    NSString *selectedValue1 = [self.resultArray1 objectAtIndex:indexPath.row];
-    NSString *selectedValue2 = [self.resultArray2 objectAtIndex:indexPath.row];
+    NSString *selectedValue1 = [self.allDataSources[@"leftArray"] objectAtIndex:indexPath.row];
+    NSString *selectedValue2 = [self.allDataSources[@"rightArray"] objectAtIndex:indexPath.row];
     
     UILabel *selectLabel_1 = [selectedcell viewWithTag:1];
     UILabel *selectLabel_2 = [selectedcell viewWithTag:2];
@@ -185,7 +204,7 @@
                                 [self.classify setTitle:@"全部" forState:UIControlStateNormal];
 //                                // 2. 禁用字体自动调整 (防止系统覆盖)
 //                                self.classify.titleLabel.adjustsFontSizeToFitWidth = NO;
-                                self.classify.titleLabel.font = [UIFont boldSystemFontOfSize:30.0];
+//                                self.classify.titleLabel.font = [UIFont boldSystemFontOfSize:20.0];
 //                                // 4. 强制按钮调整大小以适应新字体
 //                                [self.classify.titleLabel sizeToFit];
 //                                // 5. 强制按钮立即更新布局
@@ -218,6 +237,7 @@
                                       NSLog(@"用户选择了：每３年");
                                       // 修正：更新按钮标题为“每３年”
                                       [self.classify setTitle:@"每３年" forState:UIControlStateNormal];
+        
                                       self.classifyValue = @"每３年";
                                       [self classifyFinish];
                                       }];
@@ -242,47 +262,45 @@
 -(void)classifyFinish{
     if ([self.classifyValue isEqualToString:@"全部"]) {
         // 逻辑 A
-        [self.resultArray1 removeAllObjects];
+        [self.allDataSources[@"leftArray"] removeAllObjects];
         for(int i=0;i<self.leftArray.count;i++){
             NSString *a = self.leftArray[i];
-            [self.resultArray1 addObject:a];
+            [self.allDataSources[@"leftArray"] addObject:a];
         }
         
-        [self.resultArray2 removeAllObjects];
+        [self.allDataSources[@"rightArray"] removeAllObjects];
         for(int i=0;i<self.rightArray.count;i++){
             NSString *b = self.rightArray[i];
-            [self.resultArray2 addObject:b];
+            [self.allDataSources[@"rightArray"] addObject:b];
         }
     } else if ([self.classifyValue isEqualToString:@"每２年"]) {
         // 逻辑 B
-        [self.resultArray1 removeAllObjects];
+        [self.allDataSources[@"leftArray"] removeAllObjects];
         for(int i=0;i<self.leftArray.count;i+=2){
             NSString *a = self.leftArray[i];
-            [self.resultArray1 addObject:a];
+            [self.allDataSources[@"leftArray"] addObject:a];
         }
         
-        [self.resultArray2 removeAllObjects];
+        [self.allDataSources[@"rightArray"] removeAllObjects];
         for(int i=0;i<self.rightArray.count;i+=2){
             NSString *b = self.rightArray[i];
-            [self.resultArray2 addObject:b];
+            [self.allDataSources[@"rightArray"] addObject:b];
         }
     } else if ([self.classifyValue isEqualToString:@"每３年"]) {
         // 逻辑 C
-        [self.resultArray1 removeAllObjects];
+        [self.allDataSources[@"leftArray"] removeAllObjects];
         for(int i=0;i<self.leftArray.count;i+=3){
             NSString *a = self.leftArray[i];
-            [self.resultArray1 addObject:a];
+            [self.allDataSources[@"leftArray"] addObject:a];
         }
         
-        [self.resultArray2 removeAllObjects];
+        [self.allDataSources[@"rightArray"] removeAllObjects];
         for(int i=0;i<self.rightArray.count;i+=3){
             NSString *b = self.rightArray[i];
-            [self.resultArray2 addObject:b];
+            [self.allDataSources[@"rightArray"] addObject:b];
         }
-    } else {
-        // 逻辑 D
-        return;
-    }
+    }// else 塊不需要再寫了，因為它原本就是 return;
+    
     [self.tableView reloadData];
 }
 @end
