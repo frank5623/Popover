@@ -260,46 +260,70 @@
     
 }
 -(void)classifyFinish{
+    // 1. 取得 TableView 實際使用數據源的引用
+        NSMutableArray *targetLeftArray = self.allDataSources[@"leftArray"];
+        NSMutableArray *targetRightArray = self.allDataSources[@"rightArray"];
+        // 2. 每次篩選前，清空目標陣列（公共步驟）
+        [targetLeftArray removeAllObjects];
+        [targetRightArray removeAllObjects];
+    
     if ([self.classifyValue isEqualToString:@"全部"]) {
         // 逻辑 A
-        [self.allDataSources[@"leftArray"] removeAllObjects];
-        for(int i=0;i<self.leftArray.count;i++){
-            NSString *a = self.leftArray[i];
-            [self.allDataSources[@"leftArray"] addObject:a];
-        }
+        [targetLeftArray addObjectsFromArray:self.leftArray];
+        [targetRightArray addObjectsFromArray:self.rightArray];
         
-        [self.allDataSources[@"rightArray"] removeAllObjects];
-        for(int i=0;i<self.rightArray.count;i++){
-            NSString *b = self.rightArray[i];
-            [self.allDataSources[@"rightArray"] addObject:b];
+    }else{
+        // 邏輯 B/C：每 N 年，執行篩選迴圈
+                
+        // 判斷步長
+        NSInteger step = 1;
+        if ([self.classifyValue isEqualToString:@"每２年"]) {
+            step = 2;
+        } else if ([self.classifyValue isEqualToString:@"每３年"]) {
+            step = 3;
         }
-    } else if ([self.classifyValue isEqualToString:@"每２年"]) {
-        // 逻辑 B
-        [self.allDataSources[@"leftArray"] removeAllObjects];
-        for(int i=0;i<self.leftArray.count;i+=2){
-            NSString *a = self.leftArray[i];
-            [self.allDataSources[@"leftArray"] addObject:a];
+        // 如果步長大於 1，才執行篩選
+        if (step > 1) {
+            for (int i = 0; i < self.leftArray.count; i += step) {
+                // 左側陣列 (Left Array)
+                NSString *a = self.leftArray[i];
+                [targetLeftArray addObject:a];
+                
+                // 右側陣列 (Right Array)
+                if (i < self.rightArray.count) {
+                    NSString *b = self.rightArray[i];
+                    [targetRightArray addObject:b];
+                }
+            }
         }
-        
-        [self.allDataSources[@"rightArray"] removeAllObjects];
-        for(int i=0;i<self.rightArray.count;i+=2){
-            NSString *b = self.rightArray[i];
-            [self.allDataSources[@"rightArray"] addObject:b];
-        }
-    } else if ([self.classifyValue isEqualToString:@"每３年"]) {
-        // 逻辑 C
-        [self.allDataSources[@"leftArray"] removeAllObjects];
-        for(int i=0;i<self.leftArray.count;i+=3){
-            NSString *a = self.leftArray[i];
-            [self.allDataSources[@"leftArray"] addObject:a];
-        }
-        
-        [self.allDataSources[@"rightArray"] removeAllObjects];
-        for(int i=0;i<self.rightArray.count;i+=3){
-            NSString *b = self.rightArray[i];
-            [self.allDataSources[@"rightArray"] addObject:b];
-        }
-    }// else 塊不需要再寫了，因為它原本就是 return;
+    }
+//    else if ([self.classifyValue isEqualToString:@"每２年"]) {
+//        // 逻辑 B
+//        [self.allDataSources[@"leftArray"] removeAllObjects];
+//        for(int i=0;i<self.leftArray.count;i+=2){
+//            NSString *a = self.leftArray[i];
+//            [self.allDataSources[@"leftArray"] addObject:a];
+//        }
+//        
+//        [self.allDataSources[@"rightArray"] removeAllObjects];
+//        for(int i=0;i<self.rightArray.count;i+=2){
+//            NSString *b = self.rightArray[i];
+//            [self.allDataSources[@"rightArray"] addObject:b];
+//        }
+//    } else if ([self.classifyValue isEqualToString:@"每３年"]) {
+//        // 逻辑 C
+//        [self.allDataSources[@"leftArray"] removeAllObjects];
+//        for(int i=0;i<self.leftArray.count;i+=3){
+//            NSString *a = self.leftArray[i];
+//            [self.allDataSources[@"leftArray"] addObject:a];
+//        }
+//        
+//        [self.allDataSources[@"rightArray"] removeAllObjects];
+//        for(int i=0;i<self.rightArray.count;i+=3){
+//            NSString *b = self.rightArray[i];
+//            [self.allDataSources[@"rightArray"] addObject:b];
+//        }
+//    }// else 塊不需要再寫了，因為它原本就是 return;
     
     [self.tableView reloadData];
 }
