@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad7_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,17 +13,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="744" height="1133"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQ7-ph-G2h">
-                                <rect key="frame" x="20" y="68" width="374" height="94"/>
+                                <rect key="frame" x="113" y="44" width="483" height="118"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9n-jA-ewm">
-                                <rect key="frame" x="39" y="198" width="336" height="114"/>
+                                <rect key="frame" x="10" y="174" width="364" height="139"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="好解說">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="100"/>
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pj2-NP-jhL">
-                                <rect key="frame" x="293" y="800" width="121" height="62"/>
+                                <rect key="frame" x="590" y="524" width="121" height="89"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="test">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="50"/>
@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yn0-pD-wkb">
-                                <rect key="frame" x="20" y="815" width="109" height="21"/>
+                                <rect key="frame" x="20" y="524" width="109" height="139"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="分辨">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
@@ -52,6 +52,21 @@
                                     <action selector="seperateMeth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sNP-1B-piq"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mSV-46-uXj">
+                                <rect key="frame" x="504" y="93" width="159" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="男"/>
+                                    <segment title="女"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="o7a-OC-1Lm"/>
+                                </connections>
+                            </segmentedControl>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="phg-0l-aeI">
+                                <rect key="frame" x="391" y="211" width="320" height="297"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -61,7 +76,7 @@
                             <constraint firstItem="pj2-NP-jhL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="590" id="4Jd-Zn-2nY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h9n-jA-ewm" secondAttribute="trailing" constant="39" id="8RE-cE-vGX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Yn0-pD-wkb" secondAttribute="bottom" constant="26" id="AIP-PP-2xK"/>
-                            <constraint firstItem="h9n-jA-ewm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="192" id="AnA-P4-LKd"/>
+                            <constraint firstItem="h9n-jA-ewm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="AnA-P4-LKd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Yn0-pD-wkb" secondAttribute="bottom" constant="15" id="C5C-cW-wGa"/>
                             <constraint firstItem="h9n-jA-ewm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="39" id="CD9-CP-ukt"/>
                             <constraint firstItem="nQ7-ph-G2h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="CYh-3T-5Sy"/>
@@ -86,7 +101,7 @@
                             <constraint firstItem="Yn0-pD-wkb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="500" id="d7n-E2-7gu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nQ7-ph-G2h" secondAttribute="trailing" constant="148" id="dAC-LM-lOw"/>
                             <constraint firstItem="pj2-NP-jhL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="293" id="dne-W4-hoc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h9n-jA-ewm" secondAttribute="trailing" constant="228" id="dpp-ic-wC2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h9n-jA-ewm" secondAttribute="trailing" constant="370" id="dpp-ic-wC2"/>
                             <constraint firstItem="nQ7-ph-G2h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="423" id="gKc-v9-us2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nQ7-ph-G2h" secondAttribute="bottom" constant="951" id="hQE-5A-QLQ"/>
                             <constraint firstAttribute="trailing" secondItem="pj2-NP-jhL" secondAttribute="trailing" constant="43" id="jlk-Ja-yzm"/>
@@ -116,10 +131,10 @@
                                 <exclude reference="bLl-ea-aZh"/>
                                 <exclude reference="rc9-6V-LXG"/>
                                 <exclude reference="xbu-3m-x81"/>
-                                <exclude reference="Sim-e4-buG"/>
                                 <exclude reference="AIP-PP-2xK"/>
                                 <exclude reference="C5C-cW-wGa"/>
                                 <exclude reference="ZXd-5Z-rR8"/>
+                                <exclude reference="Sim-e4-buG"/>
                                 <exclude reference="rsS-3u-6fq"/>
                                 <exclude reference="xVq-0Q-XYq"/>
                                 <exclude reference="y8P-ic-eSp"/>
@@ -203,8 +218,8 @@
                                 <include reference="dAC-LM-lOw"/>
                                 <include reference="dpp-ic-wC2"/>
                                 <include reference="xbu-3m-x81"/>
-                                <include reference="Sim-e4-buG"/>
                                 <include reference="ZXd-5Z-rR8"/>
+                                <include reference="Sim-e4-buG"/>
                                 <include reference="rsS-3u-6fq"/>
                                 <include reference="hQE-5A-QLQ"/>
                                 <include reference="ZV8-j9-sn6"/>
@@ -220,31 +235,33 @@
                     </view>
                     <connections>
                         <outlet property="eazybtn" destination="h9n-jA-ewm" id="v2c-JH-nly"/>
+                        <outlet property="genderSegment" destination="mSV-46-uXj" id="duk-EJ-b8Y"/>
                         <outlet property="label" destination="nQ7-ph-G2h" id="CXW-U6-Rvy"/>
+                        <outlet property="picture" destination="phg-0l-aeI" id="NMJ-fx-FN3"/>
                         <outlet property="seperatebtn" destination="Yn0-pD-wkb" id="kmW-mu-bHT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120.28985507246378" y="-29.464285714285712"/>
+            <point key="canvasLocation" x="120.16129032258064" y="-29.920564872021181"/>
         </scene>
         <!--Table Picker-->
         <scene sceneID="Hn6-4i-N0o">
             <objects>
                 <viewController storyboardIdentifier="TablePicker" id="1dX-pV-aTE" customClass="TablePicker" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OTG-o0-rOy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <rect key="frame" x="0.0" y="0.0" width="744" height="1113"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UvS-q5-FsO">
-                                <rect key="frame" x="0.0" y="60" width="414" height="826"/>
+                                <rect key="frame" x="0.0" y="60" width="744" height="1053"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TablePickerCell" id="HU2-1K-S7o">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="744" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HU2-1K-S7o" id="LJA-dF-Zku">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="744" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="左奇數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0z-0Y-0O6">

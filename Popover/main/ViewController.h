@@ -17,6 +17,10 @@
 
 - (IBAction)seperateMeth:(id)sender;//分辨
 
+//性別Segment
+@property (weak, nonatomic) IBOutlet UISegmentedControl *genderSegment;
+//圖片
+@property (weak, nonatomic) IBOutlet UIImageView *picture;
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 

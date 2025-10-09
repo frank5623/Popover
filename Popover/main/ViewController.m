@@ -27,6 +27,33 @@
 -(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
     return UIModalPresentationNone;
 }
+- (IBAction)segmentAction:(UISegmentedControl *)sender {
+    // 检查事件是否确实来自您预期的那个分段控件（如果您在多个控件上连接了同一个 Action）
+    if (sender == self.genderSegment) {
+        
+        // 获取当前选中的分段索引
+        NSInteger selectedIndex = sender.selectedSegmentIndex;
+        
+        if (selectedIndex == 0) {
+            // 用户选择了第一个分段 (索引 0)，例如： "男"
+            NSLog(@"选中了第一个分段 (索引 0)");
+            self.picture.image = [UIImage imageNamed:@"boy.jpg"];
+            
+        } else if (selectedIndex == 1) {
+            // 用户选择了第二个分段 (索引 1)，例如： "女"
+            NSLog(@"选中了第二个分段 (索引 1)");
+            self.picture.image = [UIImage imageNamed:@"girl.jpg"];
+            
+        } else {
+            // 如果有更多分段，可以在这里继续添加判断...
+        }
+    }
+    // 注意：如果您的原始代码 self.genderSegment[0] 是一个 UISegmentedControl 对象，
+    // 并且您在故事板中将它的 Value Changed 事件连接到了这个方法，
+    // 那么 sender 实际上就是 self.genderSegment[0] 这个对象本身。
+    // 但是直接比较 sender == self.genderSegment[0] 并不符合处理分段选择的常见模式。
+}
+
 - (IBAction)seperateMeth:(id)sender {
     //10/7 做 regular expression
     // 1. 获取目标字符串
