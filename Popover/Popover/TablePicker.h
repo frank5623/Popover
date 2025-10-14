@@ -39,6 +39,9 @@
 @property (nonatomic,strong) NSMutableArray *leftArray; //左右資料庫
 @property (nonatomic,strong) NSMutableArray *rightArray;
 
+//segment 男女選項
+@property(nonatomic,weak) NSString *nowSegment;
+
 // 核心数据源：存储所有可供选择的原始数据（例如 1 到 20 的选项）
 // Key: 筛选选项名称 (例如: @"全部", @"每２年", @"每３年")
 // Value: 包含两个 NSMutableArrays 的 NSDictionary (例如: @{@"left": [NSArray], @"right": [NSArray]})

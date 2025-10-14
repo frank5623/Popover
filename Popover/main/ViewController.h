@@ -15,18 +15,16 @@
 
 -(IBAction)eazypress:(id)sender;
 
-- (IBAction)seperateMeth:(id)sender;//分辨
-
 //性別Segment
 @property (weak, nonatomic) IBOutlet UISegmentedControl *genderSegment;
 //圖片
 @property (weak, nonatomic) IBOutlet UIImageView *picture;
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UILabel *separateLabel;
 
 ///按鈕啟用／禁用     /////////////////////////////////////////////
 @property (weak, nonatomic) IBOutlet UIButton *eazybtn;
-@property (weak, nonatomic) IBOutlet UIButton *seperatebtn;
 //////////////////////////////////////////////////////////////////////////////////
 
 @property (strong, nonatomic) TablePicker *tablePicker;

@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1575869C2E9CCC9F00018095 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1575869B2E9CCC9F00018095 /* Assets.xcassets */; };
 		1576C12A2E8507B800EE441B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1576C1292E8507B800EE441B /* AppDelegate.m */; };
 		1576C12D2E8507B800EE441B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1576C12C2E8507B800EE441B /* SceneDelegate.m */; };
 		1576C1332E8507B800EE441B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1576C1312E8507B800EE441B /* Main.storyboard */; };
-		1576C1352E8507BA00EE441B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1576C1342E8507BA00EE441B /* Assets.xcassets */; };
 		1576C1382E8507BA00EE441B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1576C1362E8507BA00EE441B /* LaunchScreen.storyboard */; };
 		1576C13B2E8507BA00EE441B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1576C13A2E8507BA00EE441B /* main.m */; };
 		1576C1452E8507BA00EE441B /* PopoverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1576C1442E8507BA00EE441B /* PopoverTests.m */; };
@@ -19,6 +19,8 @@
 		1576C1602E85298B00EE441B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1576C15F2E85298B00EE441B /* ViewController.m */; };
 		1576C16D2E8CD2DD00EE441B /* TablePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1576C16C2E8CD2DD00EE441B /* TablePicker.m */; };
 		1576C1702E8E695E00EE441B /* NSString+ChineseNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1576C16F2E8E695E00EE441B /* NSString+ChineseNumber.m */; };
+		15A991792E97B741007A6026 /* selectBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A991782E97B741007A6026 /* selectBG.png */; };
+		15A9917B2E97B749007A6026 /* UnselectBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A9917A2E97B749007A6026 /* UnselectBG.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,13 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1575869B2E9CCC9F00018095 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1576C1252E8507B800EE441B /* Popover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1576C1282E8507B800EE441B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1576C1292E8507B800EE441B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1576C12B2E8507B800EE441B /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		1576C12C2E8507B800EE441B /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		1576C1322E8507B800EE441B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1576C1342E8507BA00EE441B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1576C1372E8507BA00EE441B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1576C13A2E8507BA00EE441B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1576C1402E8507BA00EE441B /* PopoverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopoverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +61,8 @@
 		1576C16C2E8CD2DD00EE441B /* TablePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TablePicker.m; sourceTree = "<group>"; };
 		1576C16E2E8E695E00EE441B /* NSString+ChineseNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+ChineseNumber.h"; sourceTree = "<group>"; };
 		1576C16F2E8E695E00EE441B /* NSString+ChineseNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+ChineseNumber.m"; sourceTree = "<group>"; };
+		15A991782E97B741007A6026 /* selectBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectBG.png; sourceTree = "<group>"; };
+		15A9917A2E97B749007A6026 /* UnselectBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UnselectBG.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,9 +117,11 @@
 				1576C12B2E8507B800EE441B /* SceneDelegate.h */,
 				1576C12C2E8507B800EE441B /* SceneDelegate.m */,
 				1576C1312E8507B800EE441B /* Main.storyboard */,
-				1576C1342E8507BA00EE441B /* Assets.xcassets */,
+				1575869B2E9CCC9F00018095 /* Assets.xcassets */,
 				1576C1362E8507BA00EE441B /* LaunchScreen.storyboard */,
 				1576C13A2E8507BA00EE441B /* main.m */,
+				15A991782E97B741007A6026 /* selectBG.png */,
+				15A9917A2E97B749007A6026 /* UnselectBG.png */,
 				1576C1612E852A3E00EE441B /* main */,
 				1576C1652E852A7900EE441B /* Popover */,
 				1576C1712E8E697500EE441B /* Category */,
@@ -271,9 +277,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15A991792E97B741007A6026 /* selectBG.png in Resources */,
 				1576C1382E8507BA00EE441B /* LaunchScreen.storyboard in Resources */,
-				1576C1352E8507BA00EE441B /* Assets.xcassets in Resources */,
 				1576C1332E8507B800EE441B /* Main.storyboard in Resources */,
+				15A9917B2E97B749007A6026 /* UnselectBG.png in Resources */,
+				1575869C2E9CCC9F00018095 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,13 +20,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 初始设置：B 按钮禁用 (不可按)
-    self.seperatebtn.enabled = NO;
+//    // 初始设置：B 按钮禁用 (不可按)
+//    self.seperatebtn.enabled = NO;
+    
+    UIImage *selectImage = [UIImage imageNamed:@"selectBG"];
+    [self.genderSegment setBackgroundImage:selectImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    UIImage *selectImage1 = [UIImage imageNamed:@"UnselectBG"];
+    [self.genderSegment setBackgroundImage:selectImage1 forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 }
-
+//if phone mode
 -(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
     return UIModalPresentationNone;
 }
+
 - (IBAction)segmentAction:(UISegmentedControl *)sender {
     // 检查事件是否确实来自您预期的那个分段控件（如果您在多个控件上连接了同一个 Action）
     if (sender == self.genderSegment) {
@@ -39,10 +45,17 @@
             NSLog(@"选中了第一个分段 (索引 0)");
             self.picture.image = [UIImage imageNamed:@"boy.jpg"];
             
+            //儲存結果
+            self.tablePicker.nowSegment=@"boy";
+            [self.tablePicker.tableView reloadData];
+            
         } else if (selectedIndex == 1) {
             // 用户选择了第二个分段 (索引 1)，例如： "女"
             NSLog(@"选中了第二个分段 (索引 1)");
             self.picture.image = [UIImage imageNamed:@"girl.jpg"];
+            
+            self.tablePicker.nowSegment=@"girl";
+            [self.tablePicker.tableView reloadData];
             
         } else {
             // 如果有更多分段，可以在这里继续添加判断...
@@ -54,51 +67,45 @@
     // 但是直接比较 sender == self.genderSegment[0] 并不符合处理分段选择的常见模式。
 }
 
-- (IBAction)seperateMeth:(id)sender {
-    //10/7 做 regular expression
-    // 1. 获取目标字符串
-    //目标字符串。注意：用户输入的字符可能是全角数字（如 "１"）或半角数字（如 "1"）。
-    NSString *testString = self.label.text; // 尝试判断全角数字
-    // NSString *testString = @"一"; // 尝试判断文字
-    // NSString *testString = @"123"; // 尝试判断多个半角数字
+-(void)separateMethod{
     
-    // ２．正则表达式模式：
-    // ^      -> 匹配字符串的开始
-    // [0-9０-９]+ -> 匹配一个或多个半角数字(0-9)或全角数字(０-９)
-    // $      -> 匹配字符串的结束
-    NSString *pattern = @"^選項[0-9０-９]+$";
+    // 1. 获取目标字符串
+    NSString *testString = self.label.text;
+    NSLog(@"待测试字符串: '%@'", testString); // 调试检查
+    
+    // ２．正则表达式模式：匹配 "選項" + 数字 (半角或全角)
+    NSString *pattern = @"選項[\\d]+$";
+    
     // 3. 创建 NSRegularExpression 对象
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern
-                                                                           options:0
-                                                                             error:&error];
-    
+                                                                          options:0
+                                                                            error:&error];
+    NSString *pattern2 = @"選項[\u4E00-\u9FA5]+$";
+    NSError *error2 = nil;
+    NSRegularExpression *regex2 = [NSRegularExpression regularExpressionWithPattern:pattern2
+                                                                          options:0
+                                                                            error:&error2];
     if (error) {
-        // 错误处理：如果模式字符串不合法，会在这里捕获
         NSLog(@"正则表达式创建错误: %@", error.localizedDescription);
-        // 这里可以根据情况选择返回或跳过后续逻辑
         return;
     }
     
-    // 检查匹配结果 4. 定义搜索范围
+    // 4. 检查匹配结果
     NSRange range = NSMakeRange(0, testString.length);
-    // 5. 检查匹配结果：numberOfMatchesInString 大于 0 表示匹配成功
     NSUInteger matches = [regex numberOfMatchesInString:testString options:0 range:range];
+    
+    NSUInteger matches2 = [regex2 numberOfMatchesInString:testString options:0 range:range];
 
     if (matches > 0) {
-        //NSLog(@"'%@' 是数字。", testString);
-        // 逻辑：是数字 (包括半角和全角)
-        [self.seperatebtn setTitle:@"右邊" forState:UIControlStateNormal];
-
-        // 設定按鈕文字的字型為 Helvetica Neue Bold，大小為 35.0
-        self.seperatebtn.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:35.0];
-    } else {
-        //NSLog(@"'%@' 是文字或其他非数字字符。", testString);
-        // 逻辑：是文字或包含其他非数字字符
-        [self.seperatebtn setTitle:@"左邊" forState:UIControlStateNormal];
-        self.seperatebtn.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:35.0];
+        NSLog(@"'%@' 匹配數字模式成功。", testString);
+        self.separateLabel.text=@"右邊";
+    } else if (matches2 > 0){
+        NSLog(@"'%@' 匹配中文模式成功。", testString);
+        self.separateLabel.text=@"左邊";
+    }else{
+        self.separateLabel.text=@"都不是";
     }
-    
 }
 
 - (IBAction)eazypress:(UIButton *)sender {
@@ -139,9 +146,10 @@
     
     // 【核心代码】使用接收到的 value 字符串来设置 UILabel 的 text 属性
     self.label.text = [NSString stringWithFormat:@"%@", value];
-    self.seperatebtn.enabled = true;
+   
     // 调试信息（可选）
     NSLog(@"成功通过 Delegate 接收到值并更新 Label: %@", value);
+    [self separateMethod];
 }
 
 @end

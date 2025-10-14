@@ -41,6 +41,9 @@
     NSMutableArray *resultArray1=[[NSMutableArray alloc]init];
     NSMutableArray *resultArray2=[[NSMutableArray alloc]init];
     
+    
+    self.nowSegment = @"boy";
+    
     // 3. (可選) 填充一些數據以供驗證
 //    [resultArray1 addObject:@"項目 A"];
 //    [resultArray2 addObject:@"項目 B"];
@@ -57,7 +60,7 @@
         // 2. 转换为国字
         NSString *chineseOption = [NSString stringByConvertingNumberToChineseUpToTwenty:numberStr];
         // 3. 组合成最终的选项文本
-        NSString *finalText = [NSString stringWithFormat:@"選項%@", chineseOption];
+        NSString *finalText = [NSString stringWithFormat:@"1選項%@", chineseOption];
         
         [self.leftArray addObject:finalText];
     }
@@ -69,7 +72,7 @@
 //        [self.rightArray addObject:@"選項４"];
 
     for (int i = 1; i <= 20; i++) {
-        NSString *option = [NSString stringWithFormat:@"選項%@", @(i)];
+        NSString *option = [NSString stringWithFormat:@"1選項%@", @(i)];
         [self.rightArray addObject:option];
     }
     //=============================================================================
@@ -131,14 +134,36 @@
     column_2.text  = rowData2;
     
     if (indexPath == self.lastSelectedIndexPath) { //如果是nil，就不會相等
-        if (self.lastSelectedIndexPath.row % 2 ==0){// 使用取模运算判断偶数
-            column_1.textColor=[UIColor redColor];
+        if (self.lastSelectedIndexPath.row % 2 == 0) {// 使用取模运算判断偶数
+            column_1.textColor = [UIColor redColor];
         }
-        else if(self.lastSelectedIndexPath.row % 2 != 0){
-            column_2.textColor=[UIColor redColor];
+        else if (self.lastSelectedIndexPath.row % 2 != 0) {
+            column_2.textColor = [UIColor redColor];
         }
     }
-    if (self.classifyValue !=nil) {
+    
+    //當按下選項時，顏色清空
+    if (self.classifyValue != nil) {
+        if([self.nowSegment isEqualToString:@"boy"]){
+            column_1.textColor = [UIColor blueColor];
+            column_2.textColor = [UIColor blueColor];
+        }else{
+            column_1.textColor = [UIColor purpleColor];
+            column_2.textColor = [UIColor purpleColor];
+        }
+    }
+    
+    //男女選項
+    if ([self.nowSegment isEqualToString: @"boy"]) {
+        // 如果是 "boy"，设置为蓝色
+        column_1.textColor = [UIColor blueColor];
+        column_2.textColor = [UIColor blueColor];
+    } else if ([self.nowSegment isEqualToString: @"girl"]) {
+        // 如果是 "girl"，设置为粉色
+        column_1.textColor = [UIColor purpleColor];
+        column_2.textColor = [UIColor purpleColor];
+    } else {
+        // 处理未选择或不匹配的情况 (可选: 恢复默认颜色)
         column_1.textColor = [UIColor blackColor];
         column_2.textColor = [UIColor blackColor];
     }
@@ -153,8 +178,13 @@
     UITableViewCell *lastselectedcell = [self.tableView cellForRowAtIndexPath:self.lastSelectedIndexPath];
     UILabel *leftlabel = [lastselectedcell viewWithTag:1];
     UILabel *rightlabel = [lastselectedcell viewWithTag:2];
-    leftlabel.textColor = [UIColor blackColor];
-    rightlabel.textColor = [UIColor blackColor];
+    if([self.nowSegment isEqualToString:@"boy"]){
+        leftlabel.textColor = [UIColor blueColor];
+        rightlabel.textColor = [UIColor blueColor];
+    }else{
+        leftlabel.textColor = [UIColor purpleColor];
+        rightlabel.textColor = [UIColor purpleColor];
+    }
     
     //選中位置數字
     NSInteger a = indexPath.row;
