@@ -15,21 +15,18 @@
 
 @end
 
-@implementation TablePicker{
-    BOOL clickStatus;
-    UIColor *OriginColor, *ClickColor, *OriginTextColor, *ClickTextColor;
-}
+@implementation TablePicker
 
-- (instancetype)initWithCoder:(NSCoder *)coder {
-    self = [super initWithCoder:coder];
-    if (self) {
-        OriginColor = [UIColor clearColor];
-        ClickColor = [UIColor blueColor];
-        OriginTextColor = [UIColor blackColor];
-        ClickTextColor = [UIColor whiteColor];
-    }
-    return self;
-}
+//- (instancetype)initWithCoder:(NSCoder *)coder {
+//    self = [super initWithCoder:coder];
+//    if (self) {
+//        OriginColor = [UIColor clearColor];
+//        ClickColor = [UIColor blueColor];
+//        OriginTextColor = [UIColor blackColor];
+//        ClickTextColor = [UIColor whiteColor];
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,7 +38,7 @@
     NSMutableArray *resultArray1=[[NSMutableArray alloc]init];
     NSMutableArray *resultArray2=[[NSMutableArray alloc]init];
     
-    
+    //初始是男生
     self.nowSegment = @"boy";
     
     // 3. (可選) 填充一些數據以供驗證
@@ -60,7 +57,7 @@
         // 2. 转换为国字
         NSString *chineseOption = [NSString stringByConvertingNumberToChineseUpToTwenty:numberStr];
         // 3. 组合成最终的选项文本
-        NSString *finalText = [NSString stringWithFormat:@"1選項%@", chineseOption];
+        NSString *finalText = [NSString stringWithFormat:@"選項%@", chineseOption];
         
         [self.leftArray addObject:finalText];
     }
@@ -72,7 +69,7 @@
 //        [self.rightArray addObject:@"選項４"];
 
     for (int i = 1; i <= 20; i++) {
-        NSString *option = [NSString stringWithFormat:@"1選項%@", @(i)];
+        NSString *option = [NSString stringWithFormat:@"選項%@", @(i)];
         [self.rightArray addObject:option];
     }
     //=============================================================================
@@ -196,11 +193,11 @@
     
     // 使用新的 delegate 协议方法
     if (a % 2 == 0){// 使用取模运算判断偶数
-        [self.delegate tablePicker:self didSelectValue:selectedValue1 ]; // 假设 delegate 方法有 withKey
+        [self.delegate tablePicker:selectedValue1 ]; // 假设 delegate 方法有 withKey
         selectLabel_1.textColor = [UIColor redColor];
     }
     else{
-        [self.delegate tablePicker:self didSelectValue:selectedValue2 ]; // 假设 delegate 方法有 withKey
+        [self.delegate tablePicker:selectedValue2 ]; // 假设 delegate 方法有 withKey
         selectLabel_2.textColor = [UIColor redColor];
     }
     //設定紅框框

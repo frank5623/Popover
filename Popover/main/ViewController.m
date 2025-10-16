@@ -79,7 +79,7 @@
     // 3. 创建 NSRegularExpression 对象
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern
-                                                                          options:0
+                                                                           options:0
                                                                             error:&error];
     NSString *pattern2 = @"選項[\u4E00-\u9FA5]+$";
     NSError *error2 = nil;
@@ -109,9 +109,10 @@
 }
 
 - (IBAction)eazypress:(UIButton *)sender {
-    
+    //動畫
     [popover dismissalTransitionDidEnd:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
+    
     UIStoryboard *storyboard = self.storyboard;
     
     if(self.tablePicker == nil){
@@ -142,7 +143,7 @@
     [self presentViewController:_tablePicker animated:YES completion:nil];
     	
 }
-- (void)tablePicker:(TablePicker *)picker didSelectValue:(NSString *)value {
+- (void)tablePicker:(NSString *)value {
     
     // 【核心代码】使用接收到的 value 字符串来设置 UILabel 的 text 属性
     self.label.text = [NSString stringWithFormat:@"%@", value];

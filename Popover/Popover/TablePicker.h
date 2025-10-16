@@ -15,10 +15,10 @@
 
 @optional
 // 传递选中的值
-- (void)tablePicker:(TablePicker *)picker didSelectValue:(NSString *)value;
+- (void)tablePicker:(NSString *)value;
 
 // 如果需要传递 key (根据您注释掉的代码推测) ／／沒用到，不知道為什麼要做
-- (void)tablePicker:(TablePicker *)picker didSelectValue:(NSString *)value withKey:(NSString *)key;
+- (void)tablePicker:(NSString *)value withKey:(NSString *)key;
 
 @end
 
