@@ -8,10 +8,15 @@
 #import <UIKit/UIKit.h>
 #import "TablePicker.h" // 导入 TablePicker.h 以识别协议
 #import "Foundation/Foundation.h"
+#import "KeyboardPicker.h"
 
-@interface ViewController : UIViewController <TablePickerDelegate,UIPopoverPresentationControllerDelegate>{
+@interface ViewController : UIViewController <TablePickerDelegate,UIPopoverPresentationControllerDelegate,KeyboardPickerDelegate>{
     UIPopoverPresentationController *popover;
 }
+//按鍵盤方法
+- (IBAction)keyBoard:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *keyboard;
+
 
 -(IBAction)eazypress:(id)sender;
 
@@ -28,6 +33,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 @property (strong, nonatomic) TablePicker *tablePicker;
+// 【修改点 B】: 添加 KeyboardPicker 属性来持有实例
+@property (strong, nonatomic) KeyboardPicker *keyboardPicker;
 
 @end
 

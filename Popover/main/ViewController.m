@@ -7,9 +7,10 @@
 
 #import "ViewController.h"
 #import "TablePicker.h" // 【修改点 1】确保导入 TablePicker.h
-
-@interface ViewController () <TablePickerDelegate> // 【修改点 2】采纳 TablePickerDelegate 协议
-
+#import "KeyboardPicker.h"
+@interface ViewController () <TablePickerDelegate,KeyboardPickerDelegate>
+// 【修改点 2】采纳 TablePickerDelegate 协议
+// 【修改点 C】: 在 Class Extension 中也声明遵循协议
 @end
 
 
@@ -143,6 +144,49 @@
     [self presentViewController:_tablePicker animated:YES completion:nil];
     	
 }
+
+- (IBAction)keyBoard:(UIButton *)sender {
+    // 【修改点 D】: 实现实例化和呈现 KeyboardPicker 的逻辑
+    UIStoryboard *storyboard = self.storyboard;
+    
+    if(self.keyboardPicker == nil){
+        // 从 Storyboard 实例化 KeyboardPicker
+        self.keyboardPicker = [storyboard instantiateViewControllerWithIdentifier:@"KeyboardPicker"];
+    }
+    CGFloat width = 250.0;  // 您希望的 Popover 宽度 (例如 300 点)
+    CGFloat height = 315.0; // 您希望的 Popover 高度 (例如 440 点)
+    // 【修改点】: 直接使用您定义的大尺寸来设置 preferredContentSize
+    self.keyboardPicker.preferredContentSize = CGSizeMake(width, height);
+    
+    // 1. 设置 preferredContentSize
+    // 使用 KeyboardPicker.h 中定义的常量或 getSize 方法获取的大小
+    // 建议使用 getSize 方法，因为它考虑了设备和类型
+//    CGSize keyboardSize = [self.keyboardPicker getSize];
+//    self.keyboardPicker.preferredContentSize = keyboardSize;
+    
+    // 2. 设置 Delegate
+    self.keyboardPicker.delegate = self;
+    // 记录是哪个按钮触发了键盘，以便键盘内部处理 (可选，但常用)
+    self.keyboardPicker.currentBtn = sender;
+    self.keyboardPicker.showtext = @"自定义键盘标题"; // 可设置 KindLabel 显示的文本
+    // 调用 resetStatus 来初始化键盘显示的值，否则会显示旧值
+    [self.keyboardPicker resetStatus];
+    
+    // 3. 设置为 Popover 模式
+    self.keyboardPicker.modalPresentationStyle = UIModalPresentationPopover;
+    
+    // 4. 取得 Popover 呈现控制器
+    UIPopoverPresentationController *keyPopover = self.keyboardPicker.popoverPresentationController;
+    
+    // 5. 设置 Popover 来源
+    keyPopover.sourceView = sender;
+    keyPopover.sourceRect = sender.bounds;
+    keyPopover.permittedArrowDirections = UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown;
+    keyPopover.delegate = self; // 可选，如果需要 iPad 上的全屏兼容处理
+    
+    // 6. 呈现控制器
+    [self presentViewController:self.keyboardPicker animated:YES completion:nil];
+}
 - (void)tablePicker:(NSString *)value {
     
     // 【核心代码】使用接收到的 value 字符串来设置 UILabel 的 text 属性
@@ -152,5 +196,10 @@
     NSLog(@"成功通过 Delegate 接收到值并更新 Label: %@", value);
     [self separateMethod];
 }
-
+- (void)keyboardBack:(NSString *)newvalue{
+    
+    NSLog(@"%@", newvalue);
+    [self.keyboard setTitle:newvalue forState:UIControlStateNormal];
+//    [self.keyboard settitle]
+}
 @end

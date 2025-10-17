@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1575869C2E9CCC9F00018095 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1575869B2E9CCC9F00018095 /* Assets.xcassets */; };
+		157586A12EA0BCC000018095 /* KeyboardPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 157586A02EA0BCC000018095 /* KeyboardPicker.m */; };
+		157586A42EA20F6E00018095 /* normal_button1.png in Resources */ = {isa = PBXBuildFile; fileRef = 157586A32EA20F6E00018095 /* normal_button1.png */; };
 		1576C12A2E8507B800EE441B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1576C1292E8507B800EE441B /* AppDelegate.m */; };
 		1576C12D2E8507B800EE441B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1576C12C2E8507B800EE441B /* SceneDelegate.m */; };
 		1576C1332E8507B800EE441B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1576C1312E8507B800EE441B /* Main.storyboard */; };
@@ -42,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		1575869B2E9CCC9F00018095 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1575869F2EA0BCBA00018095 /* KeyboardPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardPicker.h; sourceTree = "<group>"; };
+		157586A02EA0BCC000018095 /* KeyboardPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardPicker.m; sourceTree = "<group>"; };
+		157586A32EA20F6E00018095 /* normal_button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal_button1.png; sourceTree = "<group>"; };
 		1576C1252E8507B800EE441B /* Popover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1576C1282E8507B800EE441B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1576C1292E8507B800EE441B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -90,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		157586A22EA0BCCD00018095 /* keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				1575869F2EA0BCBA00018095 /* KeyboardPicker.h */,
+				157586A02EA0BCC000018095 /* KeyboardPicker.m */,
+			);
+			path = keyboard;
+			sourceTree = "<group>";
+		};
 		1576C11C2E8507B800EE441B = {
 			isa = PBXGroup;
 			children = (
@@ -121,9 +135,11 @@
 				1576C1362E8507BA00EE441B /* LaunchScreen.storyboard */,
 				1576C13A2E8507BA00EE441B /* main.m */,
 				15A991782E97B741007A6026 /* selectBG.png */,
+				157586A32EA20F6E00018095 /* normal_button1.png */,
 				15A9917A2E97B749007A6026 /* UnselectBG.png */,
 				1576C1612E852A3E00EE441B /* main */,
 				1576C1652E852A7900EE441B /* Popover */,
+				157586A22EA0BCCD00018095 /* keyboard */,
 				1576C1712E8E697500EE441B /* Category */,
 			);
 			path = Popover;
@@ -277,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				157586A42EA20F6E00018095 /* normal_button1.png in Resources */,
 				15A991792E97B741007A6026 /* selectBG.png in Resources */,
 				1576C1382E8507BA00EE441B /* LaunchScreen.storyboard in Resources */,
 				1576C1332E8507B800EE441B /* Main.storyboard in Resources */,
@@ -306,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				157586A12EA0BCC000018095 /* KeyboardPicker.m in Sources */,
 				1576C16D2E8CD2DD00EE441B /* TablePicker.m in Sources */,
 				1576C12A2E8507B800EE441B /* AppDelegate.m in Sources */,
 				1576C13B2E8507BA00EE441B /* main.m in Sources */,
